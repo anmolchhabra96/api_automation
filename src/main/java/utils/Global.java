@@ -77,8 +77,8 @@ public class Global{
 		setPassword();
 		getAuthenticationKey(auth,global);
 		String[] value = new String[2];
-	    value[0] = users_resource;   // Integer
-	    value[1] = authentication_key; // Double
+	    value[0] = users_resource;   
+	    value[1] = authentication_key; 
 		return value; 
 		
 	}

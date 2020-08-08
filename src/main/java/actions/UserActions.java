@@ -9,30 +9,29 @@ import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 
 import common.Api_Base;
+import utils.Global;
 
 public class UserActions{
 
 	Response response;
 	
-	Api_Base base = new Api_Base();
-	
-	public Response getUserApiResponse(String auth_key,String resource,String methodtype) throws IOException, URISyntaxException
+	public Response getUserApiResponse(Global global,String auth_key,String resource,String methodtype) throws IOException, URISyntaxException
 	{	
-		if(methodtype.equals("get"))
+		if(methodtype.equals("get"))  
 		{
-		RestAssured.baseURI= base.get_baseUrl();   
+		RestAssured.baseURI= global.getBase().get_baseUrl();   
 		response = given().header("Authorization",auth_key). 
 		when().
-		get(resource).then().contentType(base.get_content_type()).extract().response();     
+		get(resource).then().contentType(global.getBase().get_content_type()).extract().response();     
 	    return response; 
 		}
 		else
 		{
-		RestAssured.baseURI= base.get_baseUrl();   
+		RestAssured.baseURI= global.getBase().get_baseUrl();   
 		response = given().header("Authorization",auth_key). 
 		when().
-		post(resource).then().contentType(base.get_content_type()).extract().response();     
-	    return response; 
+		post(resource).then().contentType(global.getBase().get_content_type()).extract().response();     
+	    return response;  
 		}
 	}
 	

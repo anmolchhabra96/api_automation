@@ -1,19 +1,20 @@
 package common;
 
+import utils.PropertyReader;
 
 public class Api_Base {
 	
-	public static  String auth_key = null;
-	public static  String base_url = null;
-	public static  String content_type = null;
-	public static  String UserResource = null;
-	public static  String AuthResource = null; 
-	public static  String username = null;
-	public static  String password = null;
+	private String auth_key = null; 
+	private String base_url = null;
+	private String content_type = null;
+	private String UserResource = null;
+	private String AuthResource = null;  
+	private String username = null;
+	private String password = null;
 	
 	public void set_authkey(String auth_key )
 	{
-		Api_Base.auth_key=auth_key;
+		this.auth_key=auth_key; 
 	}
 	public String get_authkey()
 	{
@@ -22,7 +23,7 @@ public class Api_Base {
 	
 	public void set_baseUrl(String base_url )
 	{
-		Api_Base.base_url=base_url;
+		this.base_url=base_url;
 	}
 	
 	public String get_baseUrl() 
@@ -32,7 +33,7 @@ public class Api_Base {
 	
 	public void set_content_type(String content_type)
 	{
-		Api_Base.content_type=content_type;  
+		this.content_type=content_type;  
 	}
 	
 	public String get_content_type()
@@ -42,7 +43,7 @@ public class Api_Base {
 	
 	public void set_UserResource(String UserResource)
 	{
-		Api_Base.UserResource=UserResource;
+		this.UserResource=UserResource;
 	}
 	
 	public String get_UserResource()
@@ -52,7 +53,7 @@ public class Api_Base {
 	
 	public void set_AuthResource(String AuthResource)
 	{
-		Api_Base.AuthResource=AuthResource;
+		this.AuthResource=AuthResource;
 	}
 	
 	public String get_AuthResource()
@@ -62,7 +63,7 @@ public class Api_Base {
 	
 	public void set_username(String username)
 	{
-		Api_Base.username=username;
+		this.username=username;
 	}
 	
 	public String get_username()
@@ -72,7 +73,7 @@ public class Api_Base {
 	
 	public void set_password(String password)
 	{
-		Api_Base.password=password;
+		this.password=password;
 	}
 	
 	public String get_password()

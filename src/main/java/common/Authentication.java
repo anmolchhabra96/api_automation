@@ -12,21 +12,22 @@ import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 
+import utils.Global;
+
 public class Authentication {
 	
     Response response;
-	Api_Base base = new Api_Base();
 	
-	public Response getAuthToken() throws IOException, URISyntaxException
+	public Response getAuthToken(Global global) throws IOException, URISyntaxException
 	{	
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("username", base.get_username()); // Cast
-		requestParams.put("password", base.get_password());
-		RestAssured.baseURI= base.get_baseUrl();   
+		requestParams.put("username", global.getBase().get_username()); // Cast 
+		requestParams.put("password", global.getBase().get_password());
+		RestAssured.baseURI= global.getBase().get_baseUrl();   
 		response = given().contentType(ContentType.JSON).
 		body(requestParams.toJSONString()).
 		when().
-		post(base.get_AuthResource()).then().contentType(base.get_content_type()).extract().response();     
+		post(global.getBase().get_AuthResource()).then().contentType(global.getBase().get_content_type()).extract().response();     
 	    return response;   
 	}
 
